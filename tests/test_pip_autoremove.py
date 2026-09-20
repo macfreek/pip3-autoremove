@@ -131,10 +131,6 @@ class TestPipAutoremove(TestCase):
         pass
 
     def test6_show_extras(self):
-        # check version of python
-        if sys.version[0] < '3':
-            # Console wrapper doesn't work well on python 2.7
-            return
         installing_packages = ["jsonschema[format]"]
         extra_installed = ["webcolors"]
         for name in installing_packages:
@@ -158,10 +154,6 @@ class TestPipAutoremove(TestCase):
         """
         Case: matplotlib install and does not show somehow with -ef
         """
-        # check version of python
-        if sys.version[0] < '3':
-            # Console wrapper doesn't work well on python 2.7
-            self.skipTest("Console wrapper doesn't work well on python 2.7")
         installing_packages = ["matplotlib"]
         for name in installing_packages:
             self.__install_dist(name)
